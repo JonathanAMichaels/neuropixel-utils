@@ -2346,7 +2346,7 @@ classdef KilosortDataset < handle & matlab.mixin.Copyable
             mask_dup = false(size(spikes));
             dup_from_template = zeros(size(spikes), 'like', templates);
             dup_from_cluster_ind = zeros(size(spikes), 'like', cluster_inds);
-            prog = ProgressBar(numel(spikes), 'Checking for duplicate spikes');
+            %prog = ProgressBar(numel(spikes), 'Checking for duplicate spikes');
             for iS = 1:numel(spikes)
                 if mask_dup(iS), continue, end
                 temp1 = templates(iS);
@@ -2361,10 +2361,10 @@ classdef KilosortDataset < handle & matlab.mixin.Copyable
                     iS2 = iS2 + 1;
                 end
                 if mod(iS, 1000) == 0
-                    prog.update(iS);
+                  %  prog.update(iS);
                 end
             end
-            prog.finish();
+          %  prog.finish();
 
             if p.Results.include_cutoff_spikes
                 mask_dup_spikes = mask_dup(~mask_from_cutoff);
