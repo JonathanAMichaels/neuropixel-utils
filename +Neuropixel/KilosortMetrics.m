@@ -2144,7 +2144,7 @@ classdef KilosortMetrics < handle
             colormap = p.Results.colormap;
             if isempty(colormap)
                 % color by cluster amplitude
-                colormap = colorcet('bmy', 'N', numel(cluster_ids), 'reverse', true);
+                colormap = colorcet('bmy', 'N', numel(cluster_ids), 'reverse', false);
                 [~, sortIdx] = sort(m.cluster_amplitude(clusterInds), 'ascend');
                 colormap = colormap(sortIdx, :);
             end
